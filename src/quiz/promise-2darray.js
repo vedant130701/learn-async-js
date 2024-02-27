@@ -20,6 +20,10 @@ function sum2DArray(arr) {
         console.log('returning from sum');
     });
 }
+// our own promise object
+// resolve to define under which conditions promise is resolved
+// reject to define under which condition promise is rejected
+// setTimeout to async for expensive functions. Or else we could have done resolve(Array) and then used then block
 
 // Example usage:
 const array2D = [
@@ -29,7 +33,19 @@ const array2D = [
 ];
 
 const sumPromise1 = sum2DArray(array2D);
-console.log(sumPromise1);
+// console.log(sumPromise1);
+
+sumPromise1.then((response) => {
+    console.log(response);
+}).catch((error) => {
+    console.error(`Error: ${error}`);
+})
 
 const sumPromise2 = sum2DArray('array2D');
-console.log(sumPromise2);
+// console.log(sumPromise2);
+
+sumPromise2.then((response) => {
+    console.log(response);
+}).catch((error) => {
+    console.error(`Error: ${error}`);
+})

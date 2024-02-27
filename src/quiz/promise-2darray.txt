@@ -1,1 +1,8 @@
 Explain the code execution based on the order of the messages logged in src/quiz/promise-2darray.txt.
+
+Both sumPromise1 and sumPromise2 are promises, so they work asynchrounously. 
+So the execution order of console.log statements in both are not in any set order, they can appear
+in any order between themselves. Since we are using setTimeout(), it wil make array sum calculation
+asynchrounous. 
+Promise 2 gets rejected before Promise 1 resolve, and promise 1 takes more time to execute. Hence 
+the rejection by promise 2 comes before promise 1. 
