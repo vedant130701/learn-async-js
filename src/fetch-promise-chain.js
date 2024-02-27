@@ -10,5 +10,7 @@ const fetchPromise = fetch(
           });
     });
 
+    // chained then block. Returned from one then block to the next one.
+    // cannot work with value of promise until we use the then block
     console.log('Chaining promises ... ');
   
