@@ -23,7 +23,10 @@ function sum2DArray(arr) {
 // our own promise object
 // resolve to define under which conditions promise is resolved
 // reject to define under which condition promise is rejected
-// setTimeout to async for expensive functions. Or else we could have done resolve(Array) and then used then block
+// setTimeout to async for expensive functions. To avoid blocking of main synchronous thread
+// Or else we could have done resolve(Array) and then used then block
+
+// async functions always return promise.
 
 // Example usage:
 const array2D = [

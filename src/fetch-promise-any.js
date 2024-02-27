@@ -15,4 +15,8 @@ const fetchPromise1 = fetch(
     .catch((error) => {
         console.error(`Failed to fetch: ${error}`);
     });
+
+    // we want atleast 1 to be successful. The first one to elicit response is what gets displayed
+    // Will always give one URL
+    // Catch only happens if all of them failed
   
