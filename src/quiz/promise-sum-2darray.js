@@ -22,21 +22,24 @@ const array2D = [
     [7, 8, 9]
 ];
 
-const sumPromise0 = sum1DArray(array2D[0]);
-const sumPromise1 = sum1DArray(array2D[1]);
-const sumPromise2 = sum1DArray(array2D[2]);
-// console.log(sumPromise1);
-
-// can do a for loop and pass index in the function
 
 
+async function calculateSum() {
+    const sumPromise0 = sum1DArray(array2D[0]);
+    const sumPromise1 = sum1DArray(array2D[1]);
+    const sumPromise2 = sum1DArray(array2D[2]);
+    try {
+        const rowSums = await Promise.all([sumPromise0, sumPromise1, sumPromise2]);
+        let sum = 0;
+        rowSums.forEach(rowSum => {
+            sum+=rowSum;
+        });
+        console.log(`Sum = ${sum}`);
+        return 'done';
+    }
+    catch(error) {
+        console.log(`Error msg: ${error}`);
+    }
+}
 
-Promise.all([sumPromise0, sumPromise1, sumPromise2])
-.then((responses) => {
-    let sum = 0;
-    responses.forEach(rowSum => {
-        sum+= rowSum;
-    })
-    console.log(`Sum = ${sum}`);
-})
-.catch((error) => console.log(`${error}`));
+calculateSum().then((status) => console.log(status))
